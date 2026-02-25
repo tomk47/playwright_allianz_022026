@@ -1,21 +1,22 @@
 {
   "name": "playwright_allianz_022026",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:ui": "playwright test --ui"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomk47/playwright_allianz_022026.git"
+    "url": "git+https://github.com/tredgate/playwright_allianz_022026.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/tomk47/playwright_allianz_022026/issues"
+    "url": "https://github.com/tredgate/playwright_allianz_022026/issues"
   },
-  "homepage": "https://github.com/tomk47/playwright_allianz_022026#readme",
+  "homepage": "https://github.com/tredgate/playwright_allianz_022026#readme",
+  "description": "",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@faker-js/faker": "^10.3.0",

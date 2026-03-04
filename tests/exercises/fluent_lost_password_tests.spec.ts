@@ -1,5 +1,5 @@
 import { test } from "@playwright/test";
-import { LoginPage } from "../../../src/pages/login_page";
+import { LoginPage } from "../../src/pages/login_page";
 
 test("Exercise: Lost Password E2E", async ({ page }) => {
   const loginPage = new LoginPage(page);

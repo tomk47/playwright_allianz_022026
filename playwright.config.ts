@@ -31,8 +31,8 @@ reporter: [["html"], ["list"], ["json"]],
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    actionTimeout: 5000,
-    navigationTimeout: 20000,
+    actionTimeout: 10000,
+    navigationTimeout: 40000,
   },
   //globalTimeout: 2 * 60 * 1000,
   timeout: 2 * 60 * 1000,

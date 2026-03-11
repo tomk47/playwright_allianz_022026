@@ -16,7 +16,7 @@ export class DashboardPage {
     this.logoutButton = page.locator("#logout");
     this.alertIcon = page.locator("#user_notifications_report");
     this.appNameAnchor = page.locator(".navbar-brand");
-    this.projectButton = page.locator("#Project a");
+    this.projectButton = page.locator("#Projects a");
   }
 
   async clickProfile() {

@@ -55,4 +55,3 @@ test("Reusing Data Between API Calls", async ({ request }) => {
   ).toBeDefined();
   expect(userResponseBody.active, "userResponseBody.active have value").toBe(1);
 });
-gi

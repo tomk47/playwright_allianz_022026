@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { LoginPage } from "../../src/pages/login_page"; 
+import { pmtoolTexts } from "../../assets/pmtool_texts.ts";
 
 test("Exercise: Asserts", async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -19,5 +20,5 @@ test("Exercise: Asserts", async ({ page }) => {
   const nameInput = page.locator('div[data-testid="Name"] input');
   const saveButton = page.locator("button[type='submit']");
   await expect(nameInput, "Name Input is Visible").toBeVisible();
-  await expect(saveButton, "Save button has text").toHaveText("Save");
+  await expect(saveButton, "Save button has text").toHaveText(pmtoolTexts.createProjectModal.saveButton);
 });

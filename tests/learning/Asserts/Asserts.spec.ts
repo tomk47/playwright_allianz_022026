@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { LoginPage } from "../../../src/pages/login_page.ts";
 import { DashboardPage } from "../../../src/pages/dashboard_page.ts";
+import { pmtoolTexts } from "../../../assets/pmtool_texts.ts";
 
 test.describe("Asserts - Testing in Playwright", () => {
   let loginPage: LoginPage;
@@ -17,7 +18,7 @@ test.describe("Asserts - Testing in Playwright", () => {
   test("toContainText Assert", async ({ page }) => {
     // ? Základní expect s lokátorem
     await expect(page.locator("#welcome-page-header")).toContainText(
-      "Vítej v testovací aplikaci",
+      pmtoolTexts.dashboard.welcomeTitlePartial,
     );
 
     // ? Expect s custom message a lokátorem v const
@@ -25,13 +26,13 @@ test.describe("Asserts - Testing in Playwright", () => {
     await expect(
       welcomePageHeader,
       "Welcome Page Header Contain Text",
-    ).toContainText("Vítej v testovací aplikaci");
+    ).toContainText(pmtoolTexts.dashboard.welcomeTitlePartial);
   });
 
   test("toHaveText Assert", async ({ page }) => {
     const welcomePageHeader = page.locator("#welcome-page-header");
     await expect(welcomePageHeader, "Welcome Page Header Have Text").toHaveText(
-      "Vítej v testovací aplikaci Tredgate Project",
+      pmtoolTexts.dashboard.welcomeTitle,
     );
   });
 
@@ -53,7 +54,7 @@ test.describe("Asserts - Testing in Playwright", () => {
     const welcomePageHeader = page.locator("#welcome-page-header");
     await expect
       .soft(welcomePageHeader, "Welcome Page Header has Text")
-      .toHaveText("Vítej v testovací aplikaci");
+      .toHaveText(pmtoolTexts.dashboard.welcomeTitlePartial);
 
     const dashboardPage = new DashboardPage(page);
     await dashboardPage
@@ -66,15 +67,14 @@ test.describe("Asserts - Testing in Playwright", () => {
     await expect(
       welcomePageHeader,
       "Welcome Page Header does not have Text",
-    ).not.toContainText("ERROR");
+    ).not.toContainText(pmtoolTexts.general.errorText);
   });
 
 test("Page Objects Asserts", async ({ page }) => {
   const loginPage = new LoginPage(page);
-  const pageHeaderText = "Login";
 
   await loginPage
     .open()
-    .then((login) => login.pageHeaderHasText(pageHeaderText));
+    .then((login) => login.pageHeaderHasText(pmtoolTexts.login.pageHeader));
 });
 });

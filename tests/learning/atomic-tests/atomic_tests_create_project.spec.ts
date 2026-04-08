@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { LoginPage } from "../../../src/pages/login_page.ts";
 import { CreateNewProjectModal } from "../../../src/pages/projects/create_new_project_modal.ts";
+import { pmtoolTexts } from "../../../assets/pmtool_texts.ts";
 import path from "path";
 
 test.describe("Atomic Tests: Create Project Modal", () => {
@@ -21,18 +22,18 @@ test.describe("Atomic Tests: Create Project Modal", () => {
 
     await test.step("Title Header Tests", async () => {
       await expect(addProjectModal.titleHeader).toBeVisible();
-      await expect.soft(addProjectModal.titleHeader).toHaveText("Project Info");
+      await expect.soft(addProjectModal.titleHeader).toHaveText(pmtoolTexts.createProjectModal.titleHeader);
     });
 
     await test.step("Info Tab Tests", async () => {
       await expect.soft(addProjectModal.infoTab).toBeVisible();
-      await expect.soft(addProjectModal.infoTab).toHaveText("Info");
+      await expect.soft(addProjectModal.infoTab).toHaveText(pmtoolTexts.createProjectModal.infoTab);
     });
 
     await test.step("Priority Select Tests", async () => {
       await expect.soft(addProjectModal.prioritySelect).toBeVisible();
       await expect.soft(addProjectModal.priorityLabel).toBeVisible();
-      await expect.soft(addProjectModal.priorityLabel).toHaveText("*Priority");
+      await expect.soft(addProjectModal.priorityLabel).toHaveText(pmtoolTexts.createProjectModal.priorityLabel);
       await expect.soft(addProjectModal.prioritySelect).toHaveValue("34"); // ? Kontrola výchozí hodnoty selectu
       await addProjectModal.selectPriority("35");
       await expect.soft(addProjectModal.prioritySelect).toHaveValue("35");
@@ -43,7 +44,7 @@ test.describe("Atomic Tests: Create Project Modal", () => {
     await test.step("Status Select Tests", async () => {
       await expect.soft(addProjectModal.statusSelect).toBeVisible();
       await expect.soft(addProjectModal.statusLabel).toBeVisible();
-      await expect.soft(addProjectModal.statusLabel).toHaveText("*Status");
+      await expect.soft(addProjectModal.statusLabel).toHaveText(pmtoolTexts.createProjectModal.statusLabel);
       await addProjectModal.statusSelect.selectOption("38");
       await expect.soft(addProjectModal.statusSelect).toHaveValue("38");
       await addProjectModal.statusSelect.selectOption("37");
@@ -60,7 +61,7 @@ test.describe("Atomic Tests: Create Project Modal", () => {
       await expect.soft(addProjectModal.nameInput).toBeVisible();
       await expect.soft(addProjectModal.nameInput).toBeEnabled();
       await expect.soft(addProjectModal.nameLabel).toBeVisible();
-      await expect.soft(addProjectModal.nameLabel).toHaveText("*Name");
+      await expect.soft(addProjectModal.nameLabel).toHaveText(pmtoolTexts.createProjectModal.nameLabel);
     });
 
     await test.step("Start Date Input Tests", async () => {
@@ -69,18 +70,18 @@ test.describe("Atomic Tests: Create Project Modal", () => {
       await expect.soft(addProjectModal.startDateLabel).toBeVisible();
       await expect
         .soft(addProjectModal.startDateLabel)
-        .toHaveText("Start Date");
+        .toHaveText(pmtoolTexts.createProjectModal.startDateLabel);
     });
 
     await test.step("Buttons Structure Tests", async () => {
       await expect.soft(addProjectModal.attachmentsButton).toBeVisible();
       await expect
         .soft(addProjectModal.attachmentsButton)
-        .toHaveText("Add Attachments");
+        .toHaveText(pmtoolTexts.createProjectModal.attachmentsButton);
       await expect.soft(addProjectModal.saveButton).toBeVisible();
-      await expect.soft(addProjectModal.saveButton).toHaveText("Save");
+      await expect.soft(addProjectModal.saveButton).toHaveText(pmtoolTexts.createProjectModal.saveButton);
       await expect.soft(addProjectModal.closeButton).toBeVisible();
-      await expect.soft(addProjectModal.closeButton).toHaveText("Close");
+      await expect.soft(addProjectModal.closeButton).toHaveText(pmtoolTexts.createProjectModal.closeButton);
     });
   });
 
@@ -90,7 +91,7 @@ test.describe("Atomic Tests: Create Project Modal", () => {
     await expect.soft(addProjectModal.nameValidationDiv).toBeVisible();
     await expect
       .soft(addProjectModal.nameValidationDiv)
-      .toHaveText("This field is required!");
+      .toHaveText(pmtoolTexts.createProjectModal.nameValidationError);
   });
 
   test("Alert Message Test", async ({ page }) => {
@@ -100,7 +101,7 @@ test.describe("Atomic Tests: Create Project Modal", () => {
     await expect
       .soft(addProjectModal.alertMessageDiv)
       .toHaveText(
-        "Some fields are required. They have been highlighted above.",
+        pmtoolTexts.createProjectModal.alertMessage,
       );
   });
 

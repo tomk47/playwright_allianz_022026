@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { LoginPage } from "../../../src/pages/login_page.ts";
-import { pmtoolTexts } from "../../../src/dictionaries/dictionary.ts";
+import { pmtoolTexts } from "../../../assets/pmtool_texts.ts";
 
 test("Using dictionaries to reuse texts", async ({ page }) => {
   const username = process.env.PMTOOL_USERNAME as string;
@@ -9,7 +9,7 @@ test("Using dictionaries to reuse texts", async ({ page }) => {
 
   await loginPage
     .open()
-    .then((login) => login.pageHeaderHasText(pmtoolTexts.login.header))
+    .then((login) => login.pageHeaderHasText(pmtoolTexts.login.pageHeader))
     .then((login) => login.login(username, password));
 
   const welcomeHeader = page.locator("#welcome-page-header");
